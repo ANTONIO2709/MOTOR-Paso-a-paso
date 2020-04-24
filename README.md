@@ -47,3 +47,22 @@ motor. Por abandono, el PWR y el VCC están conectados por un cortocircuito.
 codigo:
 
 Este código utiliza el modo de cuatro pasos y cuatro pat para conducir el motor paso a paso hacia adelante y la dirección inversa.
+
+Después de ejecutar el programa, el motor paso a paso girará 360º en el sentido de las agujas del reloj y luego 360º en el sentido contrario a las agujas del reloj,
+Circulamente
+
+En el código, defina cuatro pines del motor paso a paso y el orden de la fuente de alimentación de la bobina del modo de rotación de cuatro pasos.
+
+Subfunción moveSteps (dirección, ms, pasos) se utiliza para el número de ciclo específico del motor paso a paso.
+
+Subfuncion MotorStop () se utiliza para detener el motor paso a paso.
+
+Finalmente, en el ciclo while de la función principal, gire un círculo en el sentido de las agujas del reloj, y luego un círculo en sentido antihorario.
+Según el conocimiento previo del motor paso a paso, se puede saber que la rotación del motor paso a paso
+para un círculo requiere 2048 pasos, es decir, 2048/4-512 ciclo.
+
+La subfunción moveOnePeriod (dirección, ms) conducirá el motor paso a paso girando cuatro pasos en el sentido de las agujas del reloj o
+en sentido antihorario, cuatro pasos como un ciclo. Donde el parámetro "dir" indica la dirección de rotación, si "dir" es 1, el servo
+girará hacia adelante, de lo contrario gira para invertir la dirección. El parámetro "ms" indica el tiempo entre cada
+dos pasos. El motor de paso a paso de "ms" utilizado en este proyecto es de 3 ms (el tiempo más corto), menos de 3 ms superarán
+el límite de velocidad del motor paso a paso que resulta en que el motor no puede girar.
